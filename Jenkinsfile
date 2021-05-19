@@ -4,10 +4,15 @@ pipeline {
         nodejs 'lnotley-nodejs-installation'
     }
     stages {
+        stage('Build') {
+            steps {
+                echo 'Build'
+                sh 'npm install'
+            }
         stage('Hello') {
             steps {
-                echo 'Hello World'
-                sh 'npm install'
+                echo 'Build Testing'
+                sh 'npm test'
             }
         }
     }
